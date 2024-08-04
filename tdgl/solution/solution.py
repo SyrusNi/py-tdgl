@@ -941,8 +941,7 @@ class Solution:
         """
         if self.saved_on_disk:
             if h5path is None:
-                pass
-                #self._save_to_hdf5_file(self.path, save_mesh=save_mesh)
+                self._save_to_hdf5_file(self.path, save_mesh=save_mesh)
             else:
                 shutil.copy(self.path, h5path)
                 self._save_to_hdf5_file(h5path, save_mesh=save_mesh)
