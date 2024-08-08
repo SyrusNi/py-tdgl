@@ -39,7 +39,7 @@ def ConstantField(
     )
 
 def varying_field_vector_potential(x, y, z, *, t, time_factor, Bz: float, field_units: str = "mT", length_units: str = "um"):
-    if z.ndim == 0:
+    if z.ndim == 0 or 1:
         z = z * np.ones_like(x)
     positions = np.array([x.squeeze(), y.squeeze(), z.squeeze()]).T
     positions = (positions * ureg(length_units)).to("m").magnitude
