@@ -29,16 +29,16 @@ def parse_args():
     parser.add_argument('--field_units', type=str, default="mT")
     parser.add_argument('--current_units', type=str, default="uA")
     parser.add_argument('--skip_time', type=float, default=0, help='time of thermalization')
-    parser.add_argument('--solve_time', type=float, default=100)
+    parser.add_argument('--solve_time', type=float, default=300)
     parser.add_argument('--save_every', type=float, default=100)
     
     #Externel Fields
-    parser.add_argument('--setpoints', type=ndarray, default=np.array([[0, 50, 100], [0, 1, 0]]).T)
+    parser.add_argument('--setpoints', type=ndarray, default=np.array([[0, 50, 300], [0, 0.5, 0.5]]).T)
     parser.add_argument('--value', type=float, default=1.0)
 
     #save options
-    parser.add_argument('--output_directory', type=str, default='solutions/0815')
-    parser.add_argument('--output_file', type=str, default='try')
+    parser.add_argument('--output_directory', type=str, default='solutions/0816')
+    parser.add_argument('--output_file', type=str, default='no_temp_change')
     #parser.add_argument('--plot_time_factor', type=bool, default=False)
     parser.add_argument('--make_animation', type=bool, default=False)
 

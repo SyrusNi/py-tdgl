@@ -1,1 +1,1 @@
-Based on the paper pyTDGL: Time-dependent Ginzburg-Landau in Python, Computer Physics Communications 291, 108799 (2023) and the code in https://github.com/loganbvh/py-tdgl, I wrote some new codes that facilitates easy control of the applied field, and a quick-tdgl py file for easy simualtions and records.
+Based on the paper pyTDGL: Time-dependent Ginzburg-Landau in Python, Computer Physics Communications 291, 108799 (2023) and the code in https://github.com/loganbvh/py-tdgl, I wrote a quick-tdgl py file for easy simualtions and records.

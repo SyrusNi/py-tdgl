@@ -84,7 +84,21 @@ def solve_tdgl(device, args):
                 Bi, Bf = float(Bi), float(Bf)
                 if ti <= t < tf:
                     return Bi + (Bf-Bi)*(t-ti)/(tf-ti)
+    
+    def plot_time_factor(setpoints):
+        ti = setpoints[0, 0]
+        tf = setpoints[-1, 0]
+        T = np.linspace(ti, tf, max(100, 5*len(setpoints)))
+        B = np.zeros_like(T)
+        for i in range(len(T)):
+            t = T[i]
+            B[i] = time_factor(0, 0, 0, t=t, setpoints=setpoints)
+        plt.plot(T, B)
+        plt.ylabel('time factor')
+        plt.xlabel('Time/s')
+        plt.show()
 
+    plot_time_factor(setpoints=args.setpoints)
     t_dependence = tdgl.Parameter(time_factor, setpoints=args.setpoints, time_dependent=True)
     applied_vector_potential = tdgl.sources.ConstantField(1., field_units=args.field_units, length_units=args.length_units) * t_dependence
 
