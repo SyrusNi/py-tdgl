@@ -72,16 +72,21 @@ def solve_tdgl(device, args):
     )
 
     # varying uniform field according to time_factor
-    from tdgl.sources import VaryingField, Setpoints
+    def time_factor(x, y, z, *, t, setpoints):
+        if t < setpoints[0, 0]:
+            return setpoints[0, 1]
+        elif t >= setpoints[-1, 0]:
+            return setpoints[-1, 1]
+        else:
+            for i in range(len(setpoints)):
+                ti, Bi = setpoints[i]
+                tf, Bf = setpoints[i+1]
+                Bi, Bf = float(Bi), float(Bf)
+                if ti <= t < tf:
+                    return Bi + (Bf-Bi)*(t-ti)/(tf-ti)
 
-    setpoints = args.setpoints
-
-    func = Setpoints(setpoints, plot_function=True)
-    my_scaling = func.get_func()
-
-    applied_vector_potential = (
-        VaryingField(args.value, time_factor=my_scaling, field_units=options.field_units, length_units=device.length_units)
-    )
+    t_dependence = tdgl.Parameter(time_factor, setpoints=args.setpoints, time_dependent=True)
+    applied_vector_potential = tdgl.sources.ConstantField(1., field_units=args.field_units, length_units=args.length_units) * t_dependence
 
     solution = tdgl.solve(
     device,
@@ -118,6 +123,7 @@ def main():
         figsize=(6.5, 4),
         )
         display(video)
+
 
 if __name__ == '__main__':
     main()

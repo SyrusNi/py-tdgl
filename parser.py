@@ -38,7 +38,7 @@ def parse_args():
 
     #save options
     parser.add_argument('--output_directory', type=str, default='solutions/0815')
-    parser.add_argument('--output_file', type=str, default='test')
+    parser.add_argument('--output_file', type=str, default='try')
     #parser.add_argument('--plot_time_factor', type=bool, default=False)
     parser.add_argument('--make_animation', type=bool, default=False)
 
