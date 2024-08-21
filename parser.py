@@ -22,7 +22,7 @@ def parse_args():
     parser.add_argument('--length', type=float, default=6)
 
     #make mesh
-    parser.add_argument('--max_edge_length', type=float, default=0.25, help='should be smaller than coherence length')
+    parser.add_argument('--max_edge_length', type=float, default=0.16, help='should be smaller than coherence length')
     parser.add_argument('--smooth', type=int, default=100)
 
     #solve options
@@ -37,9 +37,8 @@ def parse_args():
     parser.add_argument('--value', type=float, default=1.0)
 
     #save options
-    parser.add_argument('--output_directory', type=str, default='solutions/0816')
-    parser.add_argument('--output_file', type=str, default='showup_300')
-    #parser.add_argument('--plot_time_factor', type=bool, default=False)
+    parser.add_argument('--output_directory', type=str, default='solutions/0821')
+    parser.add_argument('--output_file', type=str, default='showup_300', help='name of the simulation and record file')
     parser.add_argument('--make_animation', type=bool, default=False)
 
     args, _ = parser.parse_known_args()

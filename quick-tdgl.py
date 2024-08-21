@@ -94,12 +94,13 @@ def solve_tdgl(device, args):
             t = T[i]
             B[i] = time_factor(0, 0, 0, t=t, setpoints=setpoints)
         plt.plot(T, B)
-        plt.ylabel('time factor')
+        plt.ylabel('B/{unit}'.format(unit=args.field_units))
         plt.xlabel('Time/s')
         plt.show()
 
-    plot_time_factor(setpoints=args.setpoints)
-    t_dependence = tdgl.Parameter(time_factor, setpoints=args.setpoints, time_dependent=True)
+    setpoints = args.setpoints
+    plot_time_factor(setpoints=setpoints)
+    t_dependence = tdgl.Parameter(time_factor, setpoints=setpoints, time_dependent=True)
     applied_vector_potential = tdgl.sources.ConstantField(1., field_units=args.field_units, length_units=args.length_units) * t_dependence
 
     solution = tdgl.solve(
