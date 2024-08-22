@@ -5,7 +5,9 @@ Based on the paper **pyTDGL: Time-dependent Ginzburg-Landau in Python, Computer 
 Refer to the guide in https://github.com/loganbvh/py-tdgl.
 
 # Try ``pyTDGL``:
-Run jupyter notebook ``example.ipynb`` to simulate the gradual emergence of vortex in the rising external field
+Run jupyter notebook ``example.ipynb`` to simulate the gradual emergence of vortex in the rising external field.
+
+![](output.png 'vortices')
 
 # How to use ``quick-tdgl.py``:
 View the program parameters:  
