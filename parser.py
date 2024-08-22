@@ -33,8 +33,8 @@ def parse_args():
     parser.add_argument('--save_every', type=float, default=100)
     
     #Externel Fields
-    parser.add_argument('--setpoints', type=ndarray, default=np.array([[0, 300], [0.39, 0.39]]).T)
-    parser.add_argument('--value', type=float, default=1.0)
+    parser.add_argument('--setpoints', type=ndarray, default=np.array([[0, 300], [0.39, 0.39]]).T, help='Setpoints for External fields, should be like np.array([[t1, B1], ..., [tN, BN]]), with shape (N,2)')
+    #parser.add_argument('--value', type=float, default=1.0)
 
     #save options
     parser.add_argument('--output_directory', type=str, default='solutions/0821')

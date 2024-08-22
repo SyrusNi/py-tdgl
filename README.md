@@ -9,6 +9,10 @@ Run jupyter notebook ``example.ipynb`` to simulate the gradual emergence of vort
 
 ![](output.png 'vortices')
 
+Or run ``I-B.ipynb`` to draw a curve of boundary current versus magnetic field and observe the hysteresis phenomenon.
+
+![](I-B.png 'hysteresis')
+
 # How to use ``quick-tdgl.py``:
 View the program parameters:  
 ``python quick-tdgl.py -h``
@@ -16,7 +20,9 @@ View the program parameters:
 Input parameters:  
 ``python quick-tdgl.py --length_units 'um' ...``
 
-Or manually assign values ​​to parameters in ``parser.py``
+Or manually assign values ​​to parameters in ``parser.py`` by modifying the default value.  
+``parser.add_argument('--length_units', type=str, default='um')``  
+``...``
 
 Run the code:  
 ``python quick-tdgl.py``
